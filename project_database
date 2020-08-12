@@ -26,4 +26,4 @@ insert into item(item_id,item_name,item_category,seller_name,item_price,availabl
 
 Table name: customer_cart_item
 
-create table customer_cart_item(card_id int primary key,user_id int references users(user_id),item_id int references item(item_id),total_price int,buy_status boolean);
+create table customer_cart_item(card_id int primary key,user_id int references users(user_id),item_id int references item(item_id),quantity int,total_price int,buy_status boolean);
