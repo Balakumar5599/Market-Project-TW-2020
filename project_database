@@ -1,0 +1,29 @@
+*****Marketplace Project Database*****
+
+Database Name: marketplace
+
+Tables:-
+
+Table name: users
+
+create table users(user_id int primary key,user_name text unique not null,password not null);
+insert into users(user_id,user_name,password) values(1,'Bala','12345678');
+insert into users(user_id,user_name,password) values(2,'Admin','hello');
+
+Table name: category
+
+create table category(category_id int primary key,category_name text not null);
+insert into category(category_id,category_name) values(1,'Books');
+insert into category(category_id,category_name) values(2,'Cars');
+insert into category(category_id,category_name) values(1,'Toys');
+insert into category(category_id,category_name) values(1,'Furnitures'); 
+
+Table name: item
+
+create table item(item_id int primary key,item_name text,item_category int references category(category_id),seller_name text not null,item_price int not null,available_quantity int,description text);
+insert into item(item_id,item_name,item_category,seller_name,item_price,available_quantity) values(1,'Thirukural',1,'Raja',500,50);
+insert into item(item_id,item_name,item_category,seller_name,item_price,available_quantity) values(2,'Chair',4,'Mani',700,100);
+
+Table name: customer_cart_item
+
+create table customer_cart_item(card_id int primary key,user_id int references users(user_id),item_id int references item(item_id),total_price int,buy_status boolean);
