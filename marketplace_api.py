@@ -4,6 +4,12 @@ from marketplace_methods import*
 app=Flask(__name__)
 app.config['DEBUG']=True
 
+@app.route('/login',methods=['POST'])
+def user_login():
+    username=request.form['user_name']
+    password=request.form['password']
+    return login(username,password)
+
 @app.route('/categories',methods=['GET'])
 def get_category():
     return jsonify(get_categories())
