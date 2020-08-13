@@ -31,7 +31,7 @@ Response Body- [
 	       ]
 
 
-3. '/cart'
+3. '/cart/<user_id>'
 
 Request- GET http request (Get request is sent to retrive all the item details in the cart)
 
@@ -39,7 +39,6 @@ Response- 200 OK
 
 Response Body- [
 		{
-		 "user_id":number
 		 "item_id":number,
 		 "quantity":number
 		 "total_price":number,
