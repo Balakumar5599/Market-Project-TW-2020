@@ -1,6 +1,17 @@
 from marketplace_model import*
 db_obj=db_connection()
 
+
+def login(username,password):
+    usernamedata=db_obj.query(User.user_name).filter_by(user_name=username).first()
+    passworddata=db_obj.query(User.password).filter_by(password=password).first()
+
+    if username in str(usernamedata) and password in str(passworddata):
+        return "You are successfully logged in"
+    else:
+        return "You are not logged in"
+    
+    
 def get_categories():
     category_dict={}
     categories = db_obj.query(Category).all()
@@ -47,12 +58,14 @@ def insert_to_cart(user_id,item_id,quantity):
         db_obj.commit()
         return "Successfully item is post into cart"
 
+
 def update_quantity(cart_id,quantity):
     cart_item=db_obj.query(CustomerCart).filter_by(card_id=int(cart_id)).first()
     cart_item.quantity=int(quantity)
     db_obj.add(cart_item)
     db_obj.commit()
     return "successfully updated"
+
 
 def delete_item(cart_id):
     cart_item=db_obj.query(CustomerCart).filter_by(card_id=int(cart_id)).first()
