@@ -1,0 +1,100 @@
+*****API DOCUMENTATION*****
+
+1. '/categories'
+
+Request- GET http request (Get request is sent to retrive all the categories)
+
+Response- 200 OK
+
+Response Body- [
+		{
+		 "category_id":number,
+		 "category_name":string
+		}
+	       ]
+
+
+2. '/categories/<category_id>/items'
+
+Request- GET http request (Get request is sent to retrive all the available items for that categories)
+
+Response- 200 OK
+
+Response Body- [
+		{
+		 "item_id":number,
+		 "item_name":string,
+		 "item_price":number,
+		 "seller_name":string,
+		 "available_quantity":number
+		}
+	       ]
+
+
+3. '/cart'
+
+Request- GET http request (Get request is sent to retrive all the item details in the cart)
+
+Response- 200 OK
+
+Response Body- [
+		{
+		 "user_id":number
+		 "item_id":number,
+		 "quantity":number
+		 "total_price":number,
+		 "buy_status":boolean
+		}
+	       ]
+
+
+4. '/cart'
+
+Request- POST http request (To post the item to the customer_cart_item table)
+
+Request Body- [
+		{
+		 "item_id":number,
+		 "quantity":number
+		}
+	       ]
+
+Response- 200 OK
+	- Successfully posted
+
+
+5. '/cart/<cart_id>'
+
+Request- PATCH http request (To update the quantity field of the customer_cart_item table)
+
+Request Body- [
+		{
+		 "item_id":number,
+		 "quantity":number
+		}
+	       ]
+
+Response- 200 OK
+	- Successfully updated
+
+
+6. 'cart/<cart_id>'
+
+Request- DELETE http request (To remove the item from the customer_cart_item table)
+
+Response- 200 OK
+	- Successfully removed
+
+
+7. '/login'
+
+Request- POST http request (To post the username, password and to check whether it is exist in user table or not)
+
+Request Body- [
+		{
+		 "user_name":string,
+		 "password":string
+		}
+	       ]
+Response- 200 OK
+	- Successfully logged in
