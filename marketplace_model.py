@@ -39,7 +39,7 @@ class User(Base):
 
 class CustomerCart(Base):
 
-    __tablename__='cart'
+    __tablename__='customer_cart'
 
     card_id=Column(Integer,primary_key=True)
     user_id=Column(Integer,ForeignKey('users.user_id'))
