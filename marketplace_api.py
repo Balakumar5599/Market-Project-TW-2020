@@ -19,7 +19,7 @@ def get_category_item(category_id):
     return jsonify(get_items(category_id))
 
 @app.route('/cart/<user_id>',methods=['GET'])
-def get_cart_itemcart(user_id):
+def get_cart_item(user_id):
     return jsonify(get_cart_details(user_id))
 
 @app.route('/cart/<user_id>',methods=['POST'])
@@ -29,12 +29,12 @@ def add_to_cart(user_id):
     return insert_to_cart(user_id,item_id,quantity)
 
 @app.route('/cart/<cart_id>',methods=['PATCH'])
-def update_cart(cart_id):
+def update_cart_item_quantity(cart_id):
     quantity=request.form['quantity']
     return update_quantity(cart_id,quantity)
 
 @app.route('/cart/<cart_id>',methods=['DELETE'])
-def remove_item(cart_id):
+def remove_item_from_cart(cart_id):
     return delete_item(cart_id)
 
 app.run()
