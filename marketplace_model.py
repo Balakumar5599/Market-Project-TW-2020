@@ -7,8 +7,7 @@ def db_connection():
 
     db_url='postgresql://postgres:Balagowtham11@localhost:5432/marketplace'
     sql_db=create_engine(db_url)
-    Session=sessionmaker(bind=sql_db)
-    db_session=Session()
+    db_session=scoped_session(sessionmaker(bind=sql_db))
     return db_session
 
 class Category(Base):
