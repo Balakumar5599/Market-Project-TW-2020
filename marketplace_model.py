@@ -45,7 +45,7 @@ class Cart(Base):
 
     __tablename__='cart'
 
-    card_id=Column(Integer,primary_key=True)
+    cart_id=Column(Integer,primary_key=True)
     user_id=Column(Integer,ForeignKey('users.user_id'))
     item_id=Column(Integer,ForeignKey('item.item_id'))
     quantity=Column(Integer)
