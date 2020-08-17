@@ -24,6 +24,6 @@ create table item(item_id int primary key,item_name text,item_category int refer
 insert into item(item_id,item_name,item_category,seller_name,item_price,available_quantity) values(1,'Thirukural',1,'Raja',500,50);
 insert into item(item_id,item_name,item_category,seller_name,item_price,available_quantity) values(2,'Chair',4,'Mani',700,100);
 
-Table name: customer_cart_item
+Table name: cart
 
-create table customer_cart_item(card_id int primary key,user_id int references users(user_id),item_id int references item(item_id),quantity int,total_price int,buy_status boolean);
+create table customer_cart_item(cart_id serial primary key,user_id int references users(user_id),item_id int references item(item_id),quantity int,total_price int,buy_status boolean);
