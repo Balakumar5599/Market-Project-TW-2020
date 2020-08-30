@@ -4,7 +4,7 @@
     <title>BM Shopping</title>
     <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/home.css')}}">
 </head>
-<body>
+<body style="background:url({{url_for('static',filename='bg_images/bg_img.jpg')}})no-repeat center fixed; background-size:cover;">
 <header>
     <nav>
         <div class="logo"><img src="{{url_for('static',filename='logo.jpg')}}"></div>
@@ -25,48 +25,30 @@
 </header>
 
 <main>
-    <h1>WELCOME TO BM SHOPPING</h1>
+    <h1 style="color:white;">WELCOME TO BM SHOPPING</h1>
     <img src="{{url_for('static',filename='logo.jpg')}}" class="center">
+    <p style="font-size:70px; color:white;">SHOP WITH US</p>
+    <div id="about">
+        <h1>About:</h1>
+        <p>"You can always find something you want"</p>
+        <p>“Happiness is not in money, but in shopping"</p>
+    </div>
 </main>
 
-<footer>
+<footer id="contact">
     <p>
         <a href="/home">Home</a>
         <a href="/categories">shop</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
-    </p>
+    </p><br>
+    <div style="color:white;">
+    <p>BM Shopping Design by : html</p>
+    <p>-No.59, PM Darga Mainstreet, Trilicane, Chennai-05</p>
+    <p>-Mob: 7010401863.</p>
+    </div>
+
 </footer>
 
 </body>
-
-<style>
-body{
-  margin:0;
-  background-image:url({{url_for('static',filename='bg_images/bg_img.jpg')}});
-  padding:0;
-  background-repeat:no-repeat;
-  width:100%;
-  height:100vh;
-  background-size:cover;
-  background-position:center;
-}
-header{
-  top:0;
-  left:0;
-  width:100%;
-  height:75px;
-  padding:10px;
-  box-sizing:border-box;
-  background:rgba(0,0,0,0.3);
-}
-
-main{
-  width:100%;
-  height:1000px;
-  text-align:center;
-  color:black];
-}
-</style>
-
 </html>
