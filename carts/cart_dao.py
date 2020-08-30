@@ -5,8 +5,11 @@ from items.item import Item
 db_obj=db_connection()
 
 def get_cart_details(user_id):
+    
     cart_list=[]
     carts=db_obj.query(Cart).filter_by(user_id=user_id).all()
+    items = db_obj.query(Item.item_name).filter_by().all()
+    
     for cart in carts:
         cart_dict={}
         cart_dict['cart_id']=cart.cart_id
@@ -14,6 +17,8 @@ def get_cart_details(user_id):
         cart_dict['quantity']=cart.quantity
         cart_dict['total price']=cart.total_price
         cart_dict['buy status']=cart.buy_status
+        item_name=str(items[(cart.item_id)-1]).replace("('","")
+        cart_dict['item_name']=item_name.replace("',)","")
         cart_list.append(cart_dict)
     return cart_list
 
