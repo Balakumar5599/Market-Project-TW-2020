@@ -8,4 +8,4 @@ def get_categories():
     categories = db_obj.query(Category).all()
     for category in categories:
         category_dict[category.category_id]=category.category_name
-    return [category_dict]
+    return category_dict
