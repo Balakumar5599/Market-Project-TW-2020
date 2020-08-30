@@ -1,0 +1,13 @@
+<title>categories</title>
+<link rel="stylesheet" href="{{url_for('static',filename='css/category.css')}}">
+{% extends "layout.html" %}
+{% block content %}
+<main>
+    <h1 class="section-header pb-70">CATEGORIES</h1>
+    {% for category_id,category_name in categories.items() %}
+        <img src="/static/category_images/{{category_id}}.jpg"><br>
+        <a href="/categories/{{category_id}}/items">{{category_name}}</a>
+    {% endfor %}
+</main>
+
+{% endblock content %}

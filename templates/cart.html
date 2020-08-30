@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+{% block content %}
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<main>
+    <h1>CART ITEMS</h1><br>
+    <div class="container">
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>
+                    <div class="p-2 px-3 text-uppercase"><h4><b>Product</b></h4></div>
+                  </th>
+                  <th>
+                    <div class="py-2 text-uppercase"><h4 style="text-align:center"><b>Price</b></h4></div>
+                  </th>
+                  <th>
+                      <div class="py-2 text-uppercase"><h4 style="text-align:center"><b>Quantity</b></h4></div>
+                  </th>
+                  <th>
+                      <div class="py-2 text-uppercase"><h4 style="text-align:center"><b>Remove</b></h4></div>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+              {% for carts in cart %}
+                <tr>
+                  <th scope="row">
+                    <div class="p-2">
+                      <img src="/static/item_images/{{carts.item_id}}.jpg" alt="img" width="50" height="50" class="img-fluid rounded shadow-sm">
+                      <div class="ml-3 d-inline-block align-middle">
+                        <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block align-middle"><h4><b>{{carts.item_name}}</b></h4></a></h5><span class="text-muted font-weight-normal font-italic d-block">Item ID:{{carts.item_id}}</span>
+                      </div>
+                    </div>
+                  </th>
+                  <td><strong><h4>Rs.{{carts.total_price}}</h4></strong></td>
+                  <td>
+                    <a style="color:black" href="/cart/{{carts.cart_id}}/update?_method=PATCH" type="submit">
+                      <input style="width:" type="number" value="{{carts.quantity}}" name="quantity" formmethod="get" />
+                    </a>
+                  </td>
+                  <td>
+                    <form action="/cart/{{carts.cart_id}}/remove?_method=DELETE">
+                      <input type="hidden" value="{{carts.cart_id}}" name="{{carts.cart_id}}" />
+                      <input type="submit" value="Remove" class="btn btn-danger" />
+                    </form>
+                  </td>
+                </tr>
+              {% endfor %}
+              </tbody>
+            </table>
+          </div>
+          <!-- End -->
+        </div>
+</main>
+{% endblock content %}

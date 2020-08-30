@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/item.css')}}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+{% extends "layout.html" %}
+{% block content %}
+
+<body>
+<section class="pt-100 pb-70">
+    <div class="container">
+        <div class="section-header">
+            <h1>ITEMS</h1>
+        </div>
+        <div class="row">
+        {% for item in item_list %}
+            <div class="ool-sm-6 ool-lg-3">
+                <form action="/cart/{{session.user_id}}" method="POST">
+                    <div class="single-publication">
+                        <figure style="width:270px;">
+                            <img style="width:150px; height:150px;" src="/static/item_images/{{item.item_id}}.jpg">
+                        </figure>
+                        <div class="publication-content">
+                            <h3><a href="#">{{item.item_name}}</a> </h3>
+                            <ul>
+                                <li><i class="ioofont-star"></i> </li>
+                                <li><i class="ioofont-star"></i> </li>
+                                <li><i class="ioofont-star"></i> </li>
+                                <li><i class="ioofont-star"></i> </li>
+                                <li><i class="ioofont-star"></i> </li>
+                            </ul>
+                            <h2 class="price">Rs.{{item.item_price}}</h2>
+                        </div><br>
+                        <div class="add-to-cart">
+                            <input type="hidden" name="item_id" value="{{item.item_id}}" />
+                            <label>Qt:</label><input type="number" name="quantity" value=1 min="1" max="{{item.available_quantity}}" />
+                            <input type="submit" value="Add to cart" class="default-btn" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock content %}
+</body>
+</html>

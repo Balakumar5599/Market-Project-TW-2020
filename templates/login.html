@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>login</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/login.css')}}">
+</head>
+
+<body>
+<main>
+    <h1>WELCOME TO BM SHOPPING</h1>
+    <img src={{url_for('static',filename='logo.jpg')}} class="center">
+    <div class="login-container">
+        <h3 style="background: rgba(0,0,0,0.1); padding:5px; width:31%; color:black; height:20px; margin-left:33.33%;">SIGN IN</h3>
+        {% block content %}
+            {% with messages= get_flashed_messages(category_filter=["danger"]) %}
+                {% if messages %}
+                    {% for message in messages %}
+                    <div class="danger-message" role="alert">
+                        {{message}}
+                    </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+        {% endblock %}
+        <form action="" method="POST">
+            <label><b>Username</b></label>
+            <input type="text" name="username" placeholder="Enter Username" required>
+            <label><b>Password</b></label>
+            <input type="password" name="password" placeholder="Enter Password" required>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+</main>
+</body>
+
+<style>
+body{
+  background-image:url({{url_for('static',filename='bg_images/login_bg.jpg')}});
+  background-repeat:no-repeat;
+  background-size:cover;
+}
+main{
+  text-align:center;
+}
+</style>
+
+</html>
