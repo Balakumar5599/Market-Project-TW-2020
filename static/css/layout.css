@@ -1,0 +1,83 @@
+
+header nav .logo{
+  height:10px;
+  float:left;
+}
+
+header nav .logo img{
+  width:64px;
+  height:64px;
+}
+
+header nav ul{
+  list-style:none;
+  margin:0;
+  pdding:0;
+  float:right;
+  display:flex;
+}
+header nav ul li a{
+  line-height:55px;
+  color:white;
+  padding:12px 30px;
+  text-decoration:none;
+  text-transform:uppercase;
+  font-size:15px;
+  font-weight:italic;
+}
+
+header nav ul li a:hover{
+  background:rgba(0,0,0,0.7);
+  border-radius:6px;
+  background-color:white;
+  color:black;
+}
+
+header nav ul li a.active{
+  background-color:blue;
+}
+
+header nav ul li button{
+  padding: 5px 14px;
+  margin-top:12.5px;
+  float:right;
+  line-height:20px;
+  background: #ddd;
+  font-size: 14px;
+  border: none;
+  border-radius:20px;
+  cursor: pointer;
+
+}
+header nav ul li button:hover{
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+main .center{
+  display:block;
+  width:250px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+
+
+footer{
+    background-color: #1f1f1f;
+    box-sizing: border-box;
+    width: 100%;
+    text-align: left;
+    padding: 30px 15px;
+    overflow: hidden;
+}
+footer a{
+  display: inline-block;
+  color:white;
+  text-decoration: none;
+  padding:5px 10px;
+  text-transform: uppercase;
+}
+footer a:hover{
+  background-color:white;
+  color:black;
+}
