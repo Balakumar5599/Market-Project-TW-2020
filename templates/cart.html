@@ -38,7 +38,7 @@
                   <td><strong><h4>Rs.{{cart.total_price}}</h4></strong></td>
                   <td>
                     <form action="/cart/{{cart.cart_id}}/update?_method=PATCH" method="POST">
-                      <input style="width:50px" type="number" name="desired_quantity" value="{{cart.quantity}}">
+                      <input style="width:50px" type="number" name="desired_quantity" value="{{cart.quantity}}" min="1" max={{cart.max_quantity}}>
                       <input type="submit">
                     </form>
                   </td>
