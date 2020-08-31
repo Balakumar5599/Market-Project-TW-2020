@@ -1,4 +1,6 @@
-from flask import Flask,g,session
+# MAIN RUN FOR MY PROJECT
+
+from flask import Flask,session
 from categories.category_controller import *
 from items.item_controller import *
 from carts.cart_controller import *
