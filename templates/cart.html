@@ -37,9 +37,10 @@
                   </th>
                   <td><strong><h4>Rs.{{cart.total_price}}</h4></strong></td>
                   <td>
-                    <a style="color:black" href="/cart/{{cart.cart_id}}/update?_method=PATCH" type="submit">
-                      <input style="width:50px" type="number" value="{{cart.quantity}}" name="desired_quantity" formmethod="get" />
-                    </a>
+                    <form action="/cart/{{cart.cart_id}}/update?_method=PATCH" method="POST">
+                      <input style="width:50px" type="number" name="desired_quantity" value="{{cart.quantity}}">
+                      <input type="submit">
+                    </form>
                   </td>
                   <td>
                     <form action="/cart/{{cart.cart_id}}/remove?_method=DELETE">
